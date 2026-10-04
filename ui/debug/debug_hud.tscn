@@ -17,11 +17,11 @@ text = "侠客异闻录\nMOVEMENT TEST"
 [node name="StatsLabel" type="Label" parent="."]
 offset_left = 20.0
 offset_top = 86.0
-offset_right = 300.0
-offset_bottom = 400.0
+offset_right = 320.0
+offset_bottom = 520.0
 mouse_filter = 2
 theme_override_font_sizes/font_size = 18
-text = "Player Position:\nX: 0\nY: 0\n\nVelocity:\nX: 0\nY: 0\n\nFacing:\nDOWN\n\nInput:\nNONE\n\nSpeed:\n160"
+text = "Player Position:\nX: 0\nY: 0\n\nVelocity:\nX: 0\nY: 0\n\nFacing:\nDOWN\n\nMovement:\nIDLE\n\nAnimation:\nidle_down\n\nInput:\nNONE\n\nSpeed:\n160"
 
 [node name="HelpLabel" type="Label" parent="."]
 offset_left = 842.0
