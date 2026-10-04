@@ -1,0 +1,12 @@
+# Godot generated cache and editor state
+.godot/
+
+# Legacy Godot import cache
+.import/
+
+# Generated export credentials
+export_credentials.cfg
+
+# Local operating system files
+.DS_Store
+Thumbs.db
