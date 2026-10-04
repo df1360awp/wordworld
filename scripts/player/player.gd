@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var move_speed: float = 160.0
 @export var walk_animation_fps: float = 8.0
 
-const CHARACTER_ASSET_STATUS: String = "PLACEHOLDER"
+const CHARACTER_ASSET_STATUS: String = "FORMAL"
 
 var last_move_direction: Vector2 = Vector2.DOWN
 var is_moving: bool = false

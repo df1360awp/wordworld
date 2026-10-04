@@ -1,28 +1,34 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=32 format=3]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_player"]
-
-[sub_resource type="Gradient" id="Gradient_idle"]
-offsets = PackedFloat32Array(0, 0.34, 0.35, 1)
-colors = PackedColorArray(0.96, 0.74, 0.48, 1, 0.96, 0.74, 0.48, 1, 0.18, 0.48, 0.9, 1, 0.18, 0.48, 0.9, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_idle"]
-gradient = SubResource("Gradient_idle")
-width = 48
-height = 72
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
-
-[sub_resource type="Gradient" id="Gradient_walk_alt"]
-offsets = PackedFloat32Array(0, 0.34, 0.35, 1)
-colors = PackedColorArray(0.96, 0.74, 0.48, 1, 0.96, 0.74, 0.48, 1, 0.12, 0.38, 0.78, 1, 0.12, 0.38, 0.78, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_walk_alt"]
-gradient = SubResource("Gradient_walk_alt")
-width = 48
-height = 72
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
+[ext_resource type="Texture2D" path="res://assets/characters/player/idle/down.png" id="2_idle_down"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/idle/up.png" id="3_idle_up"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/idle/left.png" id="4_idle_left"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/idle/right.png" id="5_idle_right"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/down/01.png" id="6_walk_down_01"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/down/02.png" id="7_walk_down_02"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/down/03.png" id="8_walk_down_03"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/down/04.png" id="9_walk_down_04"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/down/05.png" id="10_walk_down_05"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/down/06.png" id="11_walk_down_06"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/up/01.png" id="12_walk_up_01"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/up/02.png" id="13_walk_up_02"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/up/03.png" id="14_walk_up_03"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/up/04.png" id="15_walk_up_04"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/up/05.png" id="16_walk_up_05"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/up/06.png" id="17_walk_up_06"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/left/01.png" id="18_walk_left_01"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/left/02.png" id="19_walk_left_02"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/left/03.png" id="20_walk_left_03"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/left/04.png" id="21_walk_left_04"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/left/05.png" id="22_walk_left_05"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/left/06.png" id="23_walk_left_06"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/right/01.png" id="24_walk_right_01"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/right/02.png" id="25_walk_right_02"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/right/03.png" id="26_walk_right_03"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/right/04.png" id="27_walk_right_04"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/right/05.png" id="28_walk_right_05"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/walk/right/06.png" id="29_walk_right_06"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_player"]
 resource_name = "PlayerSpriteFrames"
@@ -30,7 +36,7 @@ resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_idle")
+"texture": ExtResource("2_idle_down")
 }],
 "loop": true,
 "name": &"idle_down",
@@ -38,7 +44,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_idle")
+"texture": ExtResource("3_idle_up")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -46,7 +52,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_idle")
+"texture": ExtResource("4_idle_left")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -54,7 +60,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_idle")
+"texture": ExtResource("5_idle_right")
 }],
 "loop": true,
 "name": &"idle_right",
@@ -62,10 +68,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_idle")
+"texture": ExtResource("6_walk_down_01")
 }, {
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_walk_alt")
+"texture": ExtResource("7_walk_down_02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_walk_down_03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_walk_down_04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_walk_down_05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_walk_down_06")
 }],
 "loop": true,
 "name": &"walk_down",
@@ -73,10 +91,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_idle")
+"texture": ExtResource("12_walk_up_01")
 }, {
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_walk_alt")
+"texture": ExtResource("13_walk_up_02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_walk_up_03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_walk_up_04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_walk_up_05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_walk_up_06")
 }],
 "loop": true,
 "name": &"walk_up",
@@ -84,10 +114,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_idle")
+"texture": ExtResource("18_walk_left_01")
 }, {
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_walk_alt")
+"texture": ExtResource("19_walk_left_02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_walk_left_03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_walk_left_04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_walk_left_05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_walk_left_06")
 }],
 "loop": true,
 "name": &"walk_left",
@@ -95,10 +137,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_idle")
+"texture": ExtResource("24_walk_right_01")
 }, {
 "duration": 1.0,
-"texture": SubResource("GradientTexture2D_walk_alt")
+"texture": ExtResource("25_walk_right_02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_walk_right_03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_walk_right_04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_walk_right_05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_walk_right_06")
 }],
 "loop": true,
 "name": &"walk_right",
@@ -113,9 +167,12 @@ height = 32.0
 script = ExtResource("1_player")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -36)
+position = Vector2(0, -55)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_player")
 animation = &"idle_down"
+centered = true
+offset = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)

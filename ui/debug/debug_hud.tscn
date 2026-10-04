@@ -21,7 +21,7 @@ offset_right = 340.0
 offset_bottom = 640.0
 mouse_filter = 2
 theme_override_font_sizes/font_size = 18
-text = "Player Position:\nX: 0\nY: 0\n\nVelocity:\nX: 0\nY: 0\n\nFacing:\nDOWN\n\nMovement:\nIDLE\n\nAnimation:\nidle_down\n\nCharacter Asset:\nPLACEHOLDER\n\nMap Area:\nTEST_WORLD\n\nCollision:\nCLEAR\n\nInput:\nNONE\n\nSpeed:\n160"
+text = "Player Position:\nX: 0\nY: 0\n\nVelocity:\nX: 0\nY: 0\n\nFacing:\nDOWN\n\nMovement:\nIDLE\n\nAnimation:\nidle_down\n\nCharacter Asset:\nFORMAL\n\nMap Area:\nTEST_WORLD\n\nCollision:\nCLEAR\n\nInput:\nNONE\n\nSpeed:\n160"
 
 [node name="HelpLabel" type="Label" parent="."]
 offset_left = 842.0
