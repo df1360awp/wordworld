@@ -25,6 +25,7 @@ func _process(_delta: float) -> void:
 		+ "Facing:\n%s\n\n" % player.get_facing_name()
 		+ "Movement:\n%s\n\n" % player.get_movement_name()
 		+ "Animation:\n%s\n\n" % player.get_current_animation_name()
+		+ "Character Asset:\n%s\n\n" % player.get_character_asset_status()
 		+ "Input:\n%s\n\n" % _get_input_name(input_vector)
 		+ "Speed:\n%.0f" % player.move_speed
 	)

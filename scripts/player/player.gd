@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var move_speed: float = 160.0
 @export var walk_animation_fps: float = 8.0
 
+const CHARACTER_ASSET_STATUS: String = "PLACEHOLDER"
+
 var last_move_direction: Vector2 = Vector2.DOWN
 var is_moving: bool = false
 
@@ -104,3 +106,7 @@ func get_movement_name() -> String:
 
 func get_current_animation_name() -> String:
 	return String(animated_sprite.animation)
+
+
+func get_character_asset_status() -> String:
+	return CHARACTER_ASSET_STATUS
