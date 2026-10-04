@@ -1,0 +1,152 @@
+[gd_scene load_steps=7 format=3]
+
+[sub_resource type="RectangleShape2D" id="BoundaryHorizontal"]
+size = Vector2(2400, 64)
+
+[sub_resource type="RectangleShape2D" id="BoundaryVertical"]
+size = Vector2(64, 1600)
+
+[sub_resource type="RectangleShape2D" id="DividerSegment"]
+size = Vector2(80, 500)
+
+[sub_resource type="RectangleShape2D" id="WestObstacleShape"]
+size = Vector2(360, 260)
+
+[sub_resource type="RectangleShape2D" id="EastObstacleShape"]
+size = Vector2(340, 360)
+
+[sub_resource type="RectangleShape2D" id="SouthObstacleShape"]
+size = Vector2(500, 100)
+
+[node name="World" type="Node2D"]
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Base" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(0, 0, 2400, 0, 2400, 1600, 0, 1600)
+color = Color(0.105, 0.12, 0.14, 1)
+
+[node name="WestArea" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(32, 32, 1160, 32, 1160, 1568, 32, 1568)
+color = Color(0.16, 0.22, 0.19, 1)
+
+[node name="EastArea" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(1240, 32, 2368, 32, 2368, 1568, 1240, 1568)
+color = Color(0.17, 0.19, 0.26, 1)
+
+[node name="CentralPassage" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(1160, 500, 1240, 500, 1240, 1100, 1160, 1100)
+color = Color(0.28, 0.27, 0.2, 1)
+
+[node name="WestLabel" type="Label" parent="Ground"]
+offset_left = 90.0
+offset_top = 70.0
+offset_right = 360.0
+offset_bottom = 110.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 20
+text = "GREYBOX AREA A"
+
+[node name="EastLabel" type="Label" parent="Ground"]
+offset_left = 1510.0
+offset_top = 70.0
+offset_right = 1780.0
+offset_bottom = 110.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 20
+text = "GREYBOX AREA B"
+
+[node name="Collision" type="Node2D" parent="."]
+
+[node name="TopBoundary" type="StaticBody2D" parent="Collision"]
+position = Vector2(1200, 0)
+
+[node name="Visual" type="Polygon2D" parent="Collision/TopBoundary"]
+polygon = PackedVector2Array(-1200, -32, 1200, -32, 1200, 32, -1200, 32)
+color = Color(0.34, 0.36, 0.4, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/TopBoundary"]
+shape = SubResource("BoundaryHorizontal")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="Collision"]
+position = Vector2(1200, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Collision/BottomBoundary"]
+polygon = PackedVector2Array(-1200, -32, 1200, -32, 1200, 32, -1200, 32)
+color = Color(0.34, 0.36, 0.4, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/BottomBoundary"]
+shape = SubResource("BoundaryHorizontal")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="Collision"]
+position = Vector2(0, 800)
+
+[node name="Visual" type="Polygon2D" parent="Collision/LeftBoundary"]
+polygon = PackedVector2Array(-32, -800, 32, -800, 32, 800, -32, 800)
+color = Color(0.34, 0.36, 0.4, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/LeftBoundary"]
+shape = SubResource("BoundaryVertical")
+
+[node name="RightBoundary" type="StaticBody2D" parent="Collision"]
+position = Vector2(2400, 800)
+
+[node name="Visual" type="Polygon2D" parent="Collision/RightBoundary"]
+polygon = PackedVector2Array(-32, -800, 32, -800, 32, 800, -32, 800)
+color = Color(0.34, 0.36, 0.4, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/RightBoundary"]
+shape = SubResource("BoundaryVertical")
+
+[node name="DividerTop" type="StaticBody2D" parent="Collision"]
+position = Vector2(1200, 250)
+
+[node name="Visual" type="Polygon2D" parent="Collision/DividerTop"]
+polygon = PackedVector2Array(-40, -250, 40, -250, 40, 250, -40, 250)
+color = Color(0.42, 0.38, 0.3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/DividerTop"]
+shape = SubResource("DividerSegment")
+
+[node name="DividerBottom" type="StaticBody2D" parent="Collision"]
+position = Vector2(1200, 1350)
+
+[node name="Visual" type="Polygon2D" parent="Collision/DividerBottom"]
+polygon = PackedVector2Array(-40, -250, 40, -250, 40, 250, -40, 250)
+color = Color(0.42, 0.38, 0.3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/DividerBottom"]
+shape = SubResource("DividerSegment")
+
+[node name="WestObstacle" type="StaticBody2D" parent="Collision"]
+position = Vector2(650, 760)
+
+[node name="Visual" type="Polygon2D" parent="Collision/WestObstacle"]
+polygon = PackedVector2Array(-180, -130, 180, -130, 180, 130, -180, 130)
+color = Color(0.48, 0.31, 0.28, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/WestObstacle"]
+shape = SubResource("WestObstacleShape")
+
+[node name="EastObstacle" type="StaticBody2D" parent="Collision"]
+position = Vector2(1760, 820)
+
+[node name="Visual" type="Polygon2D" parent="Collision/EastObstacle"]
+polygon = PackedVector2Array(-170, -180, 170, -180, 170, 180, -170, 180)
+color = Color(0.29, 0.39, 0.5, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/EastObstacle"]
+shape = SubResource("EastObstacleShape")
+
+[node name="SouthObstacle" type="StaticBody2D" parent="Collision"]
+position = Vector2(600, 1270)
+
+[node name="Visual" type="Polygon2D" parent="Collision/SouthObstacle"]
+polygon = PackedVector2Array(-250, -50, 250, -50, 250, 50, -250, 50)
+color = Color(0.39, 0.34, 0.46, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/SouthObstacle"]
+shape = SubResource("SouthObstacleShape")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(300, 300)

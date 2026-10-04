@@ -14,6 +14,7 @@ func _process(_delta: float) -> void:
 		"move_up",
 		"move_down"
 	)
+	var collision_state := "BLOCKED" if player.get_slide_collision_count() > 0 else "CLEAR"
 
 	stats_label.text = (
 		"Player Position:\n"
@@ -26,6 +27,8 @@ func _process(_delta: float) -> void:
 		+ "Movement:\n%s\n\n" % player.get_movement_name()
 		+ "Animation:\n%s\n\n" % player.get_current_animation_name()
 		+ "Character Asset:\n%s\n\n" % player.get_character_asset_status()
+		+ "Map Area:\nTEST_WORLD\n\n"
+		+ "Collision:\n%s\n\n" % collision_state
 		+ "Input:\n%s\n\n" % _get_input_name(input_vector)
 		+ "Speed:\n%.0f" % player.move_speed
 	)
