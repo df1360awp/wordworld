@@ -42,6 +42,28 @@ color = Color(0.55,0.35,0.25,1)
 polygon = PackedVector2Array(850,180,1250,180,1250,380,850,380)
 color = Color(0.5,0.4,0.3,1)
 
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="BigTreeNorth" type="Polygon2D" parent="Environment"]
+polygon = PackedVector2Array(900,60,980,60,980,140,900,140)
+color = Color(0.1,0.35,0.12,1)
+
+[node name="TreeVillageEntrance" type="Polygon2D" parent="Environment"]
+polygon = PackedVector2Array(2050,650,2130,650,2130,730,2050,730)
+color = Color(0.1,0.35,0.12,1)
+
+[node name="TreeVillageEntrance2" type="Polygon2D" parent="Environment"]
+polygon = PackedVector2Array(2200,650,2280,650,2280,730,2200,730)
+color = Color(0.1,0.35,0.12,1)
+
+[node name="Bridge" type="Polygon2D" parent="Environment"]
+polygon = PackedVector2Array(1550,1120,1700,1120,1700,1180,1550,1180)
+color = Color(0.5,0.32,0.18,1)
+
+[node name="WoodPile" type="Polygon2D" parent="Environment"]
+polygon = PackedVector2Array(560,920,700,920,700,970,560,970)
+color = Color(0.3,0.18,0.08,1)
+
 [node name="NPCMarkers" type="Node2D" parent="."]
 
 [node name="Lumberjack" type="Marker2D" parent="NPCMarkers"]
