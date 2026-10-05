@@ -12,7 +12,7 @@ offset_right = 420.0
 offset_bottom = 70.0
 mouse_filter = 2
 theme_override_font_sizes/font_size = 22
-text = "侠客异闻录\nVILLAGE 01 GREYBOX"
+text = "侠客异闻录\n清风村 v0.4 PREVIEW"
 
 [node name="StatsLabel" type="Label" parent="."]
 offset_left = 20.0
@@ -21,7 +21,7 @@ offset_right = 340.0
 offset_bottom = 640.0
 mouse_filter = 2
 theme_override_font_sizes/font_size = 18
-text = "Player Position:\nX: 1200\nY: 1000\n\nVelocity:\nX: 0\nY: 0\n\nFacing:\nDOWN\n\nMovement:\nIDLE\n\nAnimation:\nidle_down\n\nCharacter Asset:\nFORMAL\n\nMap Area:\nVILLAGE_01_GREYBOX\n\nCollision:\nCLEAR\n\nInput:\nNONE\n\nSpeed:\n160"
+text = "Player Position:\nX: 350\nY: 850\n\nVelocity:\nX: 0\nY: 0\n\nFacing:\nDOWN\n\nMovement:\nIDLE\n\nAnimation:\nidle_down\n\nCharacter Asset:\nFORMAL\n\nMap Area:\nQINGFENG_V04\n\nCollision:\nCLEAR\n\nInput:\nNONE\n\nSpeed:\n160"
 
 [node name="HelpLabel" type="Label" parent="."]
 offset_left = 842.0
@@ -30,5 +30,5 @@ offset_right = 1132.0
 offset_bottom = 300.0
 mouse_filter = 2
 theme_override_font_sizes/font_size = 18
-text = "第一村庄技术灰盒\n\nW / ↑    上\nS / ↓    下\nA / ←    左\nD / →    右\n\n测试建筑碰撞、道路和入口位置\n\n正式布局 / 交互键尚未冻结"
+text = "清风村 v0.4 实机预览\n\nW / ↑    上\nS / ↓    下\nA / ←    左\nD / →    右\n\n婶婶家 → 村中心 → 河边 → 村口"
 horizontal_alignment = 2
