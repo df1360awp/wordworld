@@ -1,193 +1,63 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene format=3]
 
-[sub_resource type="RectangleShape2D" id="BuildingWarehouse"]
-size = Vector2(360, 260)
+[node name="QingfengVillage" type="Node2D"]
 
-[sub_resource type="RectangleShape2D" id="BuildingShop"]
-size = Vector2(360, 240)
+[node name="Ground" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0,0,2400,0,2400,1600,0,1600)
+color = Color(0.18,0.32,0.16,1)
 
-[sub_resource type="RectangleShape2D" id="BuildingMartial"]
-size = Vector2(420, 280)
+[node name="MainRoad" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0,780,2400,780,2400,900,0,900)
+color = Color(0.42,0.32,0.2,1)
 
-[sub_resource type="RectangleShape2D" id="BuildingSouth"]
-size = Vector2(520, 220)
+[node name="River" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(1100,1150,2400,1100,2400,1350,1100,1400)
+color = Color(0.15,0.45,0.75,1)
 
-[sub_resource type="RectangleShape2D" id="VillageBoundaryH"]
-size = Vector2(2400, 64)
+[node name="AuntHouse" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(180,950,520,950,520,700,180,700)
+color = Color(0.55,0.38,0.25,1)
 
-[sub_resource type="RectangleShape2D" id="VillageBoundaryV"]
-size = Vector2(64, 1600)
+[node name="Lumberjack" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(550,850,750,850,750,700,550,700)
+color = Color(0.45,0.28,0.18,1)
 
-[node name="Village01Greybox" type="Node2D"]
+[node name="VillageWell" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(950,650,1050,650,1050,750,950,750)
+color = Color(0.55,0.55,0.5,1)
 
-[node name="Ground" type="Node2D" parent="."]
+[node name="HerbShop" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(350,500,650,500,650,650,350,650)
+color = Color(0.5,0.4,0.25,1)
 
-[node name="Base" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(0, 0, 2400, 0, 2400, 1600, 0, 1600)
-color = Color(0.12, 0.15, 0.14, 1)
+[node name="Blacksmith" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(1450,500,1850,500,1850,700,1450,700)
+color = Color(0.35,0.25,0.2,1)
 
-[node name="RoadHorizontal" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(0, 720, 2400, 720, 2400, 880, 0, 880)
-color = Color(0.30, 0.28, 0.23, 1)
+[node name="Inn" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(1150,450,1450,450,1450,700,1150,700)
+color = Color(0.55,0.35,0.25,1)
 
-[node name="RoadVertical" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(1120, 0, 1280, 0, 1280, 1600, 1120, 1600)
-color = Color(0.30, 0.28, 0.23, 1)
+[node name="ChiefHouse" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(850,180,1250,180,1250,380,850,380)
+color = Color(0.5,0.4,0.3,1)
 
-[node name="Plaza" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(820, 520, 1580, 520, 1580, 1080, 820, 1080)
-color = Color(0.22, 0.25, 0.22, 1)
+[node name="NPCMarkers" type="Node2D" parent="."]
 
-[node name="Title" type="Label" parent="Ground"]
-offset_left = 70.0
-offset_top = 55.0
-offset_right = 700.0
-offset_bottom = 105.0
-mouse_filter = 2
-theme_override_font_sizes/font_size = 26
-text = "VILLAGE 01 — PROVISIONAL GREYBOX"
+[node name="Lumberjack" type="Marker2D" parent="NPCMarkers"]
+position = Vector2(650,900)
 
-[node name="Warning" type="Label" parent="Ground"]
-offset_left = 70.0
-offset_top = 105.0
-offset_right = 820.0
-offset_bottom = 145.0
-mouse_filter = 2
-theme_override_font_sizes/font_size = 16
-text = "Technical layout only — final village arrangement is not frozen"
+[node name="HerbOldMan" type="Marker2D" parent="NPCMarkers"]
+position = Vector2(500,700)
 
-[node name="WarehouseVisual" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(270, 320, 630, 320, 630, 580, 270, 580)
-color = Color(0.43, 0.30, 0.24, 1)
+[node name="BlacksmithDaughter" type="Marker2D" parent="NPCMarkers"]
+position = Vector2(1250,820)
 
-[node name="ShopVisual" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(780, 300, 1140, 300, 1140, 540, 780, 540)
-color = Color(0.28, 0.39, 0.31, 1)
+[node name="Fisherman" type="Marker2D" parent="NPCMarkers"]
+position = Vector2(1750,1200)
 
-[node name="MartialVisual" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(1450, 300, 1870, 300, 1870, 580, 1450, 580)
-color = Color(0.35, 0.32, 0.45, 1)
-
-[node name="SouthBuildingVisual" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(940, 1130, 1460, 1130, 1460, 1350, 940, 1350)
-color = Color(0.33, 0.31, 0.27, 1)
-
-[node name="WarehouseLabel" type="Label" parent="Ground"]
-offset_left = 335.0
-offset_top = 425.0
-offset_right = 565.0
-offset_bottom = 470.0
-mouse_filter = 2
-theme_override_font_sizes/font_size = 22
-text = "仓库（占位）"
-horizontal_alignment = 1
-
-[node name="ShopLabel" type="Label" parent="Ground"]
-offset_left = 830.0
-offset_top = 385.0
-offset_right = 1090.0
-offset_bottom = 430.0
-mouse_filter = 2
-theme_override_font_sizes/font_size = 22
-text = "商店（占位）"
-horizontal_alignment = 1
-
-[node name="MartialLabel" type="Label" parent="Ground"]
-offset_left = 1510.0
-offset_top = 405.0
-offset_right = 1810.0
-offset_bottom = 450.0
-mouse_filter = 2
-theme_override_font_sizes/font_size = 22
-text = "武馆（占位）"
-horizontal_alignment = 1
-
-[node name="VillagerLabel" type="Label" parent="Ground"]
-offset_left = 915.0
-offset_top = 805.0
-offset_right = 1485.0
-offset_bottom = 850.0
-mouse_filter = 2
-theme_override_font_sizes/font_size = 22
-text = "村民活动区（占位）"
-horizontal_alignment = 1
-
-[node name="MountainGateLabel" type="Label" parent="Ground"]
-offset_left = 1020.0
-offset_top = 1375.0
-offset_right = 1380.0
-offset_bottom = 1420.0
-mouse_filter = 2
-theme_override_font_sizes/font_size = 22
-text = "青山 / 迷宫入口（占位）"
-horizontal_alignment = 1
-
-[node name="Collision" type="Node2D" parent="."]
-
-[node name="Warehouse" type="StaticBody2D" parent="Collision"]
-position = Vector2(450, 450)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/Warehouse"]
-shape = SubResource("BuildingWarehouse")
-
-[node name="Shop" type="StaticBody2D" parent="Collision"]
-position = Vector2(960, 420)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/Shop"]
-shape = SubResource("BuildingShop")
-
-[node name="MartialSchool" type="StaticBody2D" parent="Collision"]
-position = Vector2(1660, 440)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/MartialSchool"]
-shape = SubResource("BuildingMartial")
-
-[node name="SouthBuilding" type="StaticBody2D" parent="Collision"]
-position = Vector2(1200, 1240)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/SouthBuilding"]
-shape = SubResource("BuildingSouth")
-
-[node name="TopBoundary" type="StaticBody2D" parent="Collision"]
-position = Vector2(1200, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/TopBoundary"]
-shape = SubResource("VillageBoundaryH")
-
-[node name="BottomBoundary" type="StaticBody2D" parent="Collision"]
-position = Vector2(1200, 1600)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/BottomBoundary"]
-shape = SubResource("VillageBoundaryH")
-
-[node name="LeftBoundary" type="StaticBody2D" parent="Collision"]
-position = Vector2(0, 800)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/LeftBoundary"]
-shape = SubResource("VillageBoundaryV")
-
-[node name="RightBoundary" type="StaticBody2D" parent="Collision"]
-position = Vector2(2400, 800)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/RightBoundary"]
-shape = SubResource("VillageBoundaryV")
-
-[node name="PointsOfInterest" type="Node2D" parent="."]
-
-[node name="WarehouseEntrance" type="Marker2D" parent="PointsOfInterest"]
-position = Vector2(450, 610)
-
-[node name="ShopEntrance" type="Marker2D" parent="PointsOfInterest"]
-position = Vector2(960, 570)
-
-[node name="MartialSchoolEntrance" type="Marker2D" parent="PointsOfInterest"]
-position = Vector2(1660, 610)
-
-[node name="VillagerArea" type="Marker2D" parent="PointsOfInterest"]
-position = Vector2(1200, 850)
-
-[node name="MountainGate" type="Marker2D" parent="PointsOfInterest"]
-position = Vector2(1200, 1050)
+[node name="VillageExit" type="Marker2D" parent="."]
+position = Vector2(2300,820)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(1200, 1000)
+position = Vector2(350,850)
