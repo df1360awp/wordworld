@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 		+ "Movement:\n%s\n\n" % player.get_movement_name()
 		+ "Animation:\n%s\n\n" % player.get_current_animation_name()
 		+ "Character Asset:\n%s\n\n" % player.get_character_asset_status()
-		+ "Map Area:\nVILLAGE_01_GREYBOX\n\n"
+		+ "Map Area:\nQINGFENG_V04\n\n"
 		+ "Collision:\n%s\n\n" % collision_state
 		+ "Input:\n%s\n\n" % _get_input_name(input_vector)
 		+ "Speed:\n%.0f" % player.move_speed
