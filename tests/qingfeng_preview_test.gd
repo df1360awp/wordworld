@@ -25,11 +25,20 @@ func _run() -> void:
 	var ground: TileMapLayer = world.get_node("Ground")
 	var decoration: TileMapLayer = world.get_node("Decoration")
 	var blacksmith: Sprite2D = world.get_node("Architecture/Blacksmith")
+	var fisherman: Sprite2D = world.get_node("Environment/FishermanPreview")
+	var camera: Camera2D = player.get_node("Camera2D")
 
 	_check(player.global_position.distance_to(Vector2(350, 850)) < 0.5, "Player spawns inside AuntHouse at (350, 850).")
 	_check(ground.get_used_cells().size() > 1000, "Ground TileMapLayer is populated.")
 	_check(decoration.get_used_cells().size() > 10, "Decoration TileMapLayer is populated.")
 	_check(blacksmith.texture != null, "Blacksmith preview art is loaded.")
+	_check(fisherman.texture != null, "Riverside fisherman preview art is loaded.")
+	_check(camera.enabled, "Player Camera2D is enabled.")
+	_check(
+		camera.limit_left == 0 and camera.limit_top == 0
+		and camera.limit_right == 2400 and camera.limit_bottom == 1600,
+		"Camera2D limits remain 0,0,2400,1600."
+	)
 
 	# Verify the aunt house wall blocks movement, then reset.
 	player.global_position = Vector2(350, 850)
@@ -67,6 +76,26 @@ func _run() -> void:
 	start = player.global_position
 	await _hold(["move_up", "move_right"], 0.3)
 	_check(player.global_position.x > start.x and player.global_position.y < start.y, "Diagonal movement works.")
+
+	# Sample per-physics-frame displacement to catch positional hopping/jitter.
+	player.global_position = Vector2(1000, 900)
+	await physics_frame
+	var deltas: Array[float] = []
+	Input.action_press("move_right")
+	var previous_x := player.global_position.x
+	for _i in range(12):
+		await physics_frame
+		var delta_x := player.global_position.x - previous_x
+		deltas.append(delta_x)
+		previous_x = player.global_position.x
+	Input.action_release("move_right")
+	await physics_frame
+	var smooth := true
+	for delta_x in deltas:
+		if delta_x < 2.0 or delta_x > 3.2:
+			smooth = false
+			break
+	_check(smooth, "Player movement is smooth without positional hopping.")
 
 	# The river is blocked except at the preserved wooden bridge opening.
 	player.global_position = Vector2(1625, 1085)
