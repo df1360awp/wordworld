@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3]
+[gd_scene load_steps=37 format=3]
 
 [ext_resource type="Script" path="res://scripts/village/village_01_preview.gd" id="1_preview"]
 [ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/aunt_house.svg" id="2_aunt"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/chicken.svg" id="14_chicken"]
 [ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/fire_1.svg" id="15_fire_1"]
 [ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/fire_2.svg" id="16_fire_2"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/fisherman.svg" id="17_fisherman"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/reeds.svg" id="18_reeds"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fire"]
 animations = [{
@@ -161,6 +163,26 @@ centered = false
 [node name="VillageGate" type="Sprite2D" parent="Environment"]
 position = Vector2(2080, 695)
 texture = ExtResource("12_gate")
+centered = false
+
+[node name="RiverReedsA" type="Sprite2D" parent="Environment"]
+position = Vector2(1450, 1080)
+texture = ExtResource("18_reeds")
+centered = false
+
+[node name="RiverReedsB" type="Sprite2D" parent="Environment"]
+position = Vector2(1830, 1050)
+texture = ExtResource("18_reeds")
+centered = false
+
+[node name="RiverReedsC" type="Sprite2D" parent="Environment"]
+position = Vector2(2180, 1085)
+texture = ExtResource("18_reeds")
+centered = false
+
+[node name="FishermanPreview" type="Sprite2D" parent="Environment"]
+position = Vector2(1710, 1102)
+texture = ExtResource("17_fisherman")
 centered = false
 
 [node name="ChickenA" type="Sprite2D" parent="Environment"]
