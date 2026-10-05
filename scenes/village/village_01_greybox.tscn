@@ -1,101 +1,321 @@
-[gd_scene format=3]
+[gd_scene load_steps=35 format=3]
+
+[ext_resource type="Script" path="res://scripts/village/village_01_preview.gd" id="1_preview"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/aunt_house.svg" id="2_aunt"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/lumber_area.svg" id="3_lumber"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/herb_shop.svg" id="4_herb"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/blacksmith.svg" id="5_blacksmith"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/inn.svg" id="6_inn"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/chief_house.svg" id="7_chief"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/well.svg" id="8_well"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/big_tree.svg" id="9_tree"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/willow.svg" id="10_willow"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/bridge.svg" id="11_bridge"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/village_gate.svg" id="12_gate"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/stone_table.svg" id="13_stone_table"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/chicken.svg" id="14_chicken"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/fire_1.svg" id="15_fire_1"]
+[ext_resource type="Texture2D" path="res://assets/maps/qingfeng_v04/fire_2.svg" id="16_fire_2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fire"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_fire_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_fire_2")
+}],
+"loop": true,
+"name": &"burn",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="AuntTopShape"]
+size = Vector2(340, 24)
+
+[sub_resource type="RectangleShape2D" id="AuntSideShape"]
+size = Vector2(24, 250)
+
+[sub_resource type="RectangleShape2D" id="AuntBottomShape"]
+size = Vector2(145, 24)
+
+[sub_resource type="RectangleShape2D" id="LumberShape"]
+size = Vector2(180, 100)
+
+[sub_resource type="RectangleShape2D" id="HerbShape"]
+size = Vector2(280, 120)
+
+[sub_resource type="RectangleShape2D" id="BlacksmithShape"]
+size = Vector2(380, 120)
+
+[sub_resource type="RectangleShape2D" id="InnShape"]
+size = Vector2(280, 170)
+
+[sub_resource type="RectangleShape2D" id="ChiefShape"]
+size = Vector2(380, 150)
+
+[sub_resource type="CircleShape2D" id="WellShape"]
+radius = 36.0
+
+[sub_resource type="RectangleShape2D" id="RiverWestShape"]
+size = Vector2(450, 250)
+
+[sub_resource type="RectangleShape2D" id="RiverEastShape"]
+size = Vector2(700, 250)
+
+[sub_resource type="CircleShape2D" id="TreeShape"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="WillowShape"]
+radius = 28.0
+
+[sub_resource type="RectangleShape2D" id="BoundaryHorizontal"]
+size = Vector2(2400, 32)
+
+[sub_resource type="RectangleShape2D" id="BoundaryLeft"]
+size = Vector2(32, 1600)
+
+[sub_resource type="RectangleShape2D" id="BoundaryRightTop"]
+size = Vector2(32, 720)
+
+[sub_resource type="RectangleShape2D" id="BoundaryRightBottom"]
+size = Vector2(32, 640)
 
 [node name="QingfengVillage" type="Node2D"]
+script = ExtResource("1_preview")
 
-[node name="Ground" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(0,0,2400,0,2400,1600,0,1600)
-color = Color(0.18,0.32,0.16,1)
+[node name="Ground" type="TileMapLayer" parent="."]
 
-[node name="MainRoad" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(0,780,2400,780,2400,900,0,900)
-color = Color(0.42,0.32,0.2,1)
+[node name="Decoration" type="TileMapLayer" parent="."]
 
-[node name="River" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(1100,1150,2400,1100,2400,1350,1100,1400)
-color = Color(0.15,0.45,0.75,1)
+[node name="Architecture" type="Node2D" parent="."]
 
-[node name="AuntHouse" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(180,950,520,950,520,700,180,700)
-color = Color(0.55,0.38,0.25,1)
+[node name="AuntHouse" type="Sprite2D" parent="Architecture"]
+position = Vector2(180, 700)
+texture = ExtResource("2_aunt")
+centered = false
 
-[node name="Lumberjack" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(550,850,750,850,750,700,550,700)
-color = Color(0.45,0.28,0.18,1)
+[node name="LumberjackArea" type="Sprite2D" parent="Architecture"]
+position = Vector2(550, 700)
+texture = ExtResource("3_lumber")
+centered = false
 
-[node name="VillageWell" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(950,650,1050,650,1050,750,950,750)
-color = Color(0.55,0.55,0.5,1)
+[node name="HerbShop" type="Sprite2D" parent="Architecture"]
+position = Vector2(350, 500)
+texture = ExtResource("4_herb")
+centered = false
 
-[node name="HerbShop" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(350,500,650,500,650,650,350,650)
-color = Color(0.5,0.4,0.25,1)
+[node name="Blacksmith" type="Sprite2D" parent="Architecture"]
+position = Vector2(1450, 500)
+texture = ExtResource("5_blacksmith")
+centered = false
 
-[node name="Blacksmith" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(1450,500,1850,500,1850,700,1450,700)
-color = Color(0.35,0.25,0.2,1)
+[node name="Inn" type="Sprite2D" parent="Architecture"]
+position = Vector2(1150, 450)
+texture = ExtResource("6_inn")
+centered = false
 
-[node name="Inn" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(1150,450,1450,450,1450,700,1150,700)
-color = Color(0.55,0.35,0.25,1)
+[node name="ChiefHouse" type="Sprite2D" parent="Architecture"]
+position = Vector2(850, 180)
+texture = ExtResource("7_chief")
+centered = false
 
-[node name="ChiefHouse" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(850,180,1250,180,1250,380,850,380)
-color = Color(0.5,0.4,0.3,1)
+[node name="VillageWell" type="Sprite2D" parent="Architecture"]
+position = Vector2(950, 650)
+texture = ExtResource("8_well")
+centered = false
 
 [node name="Environment" type="Node2D" parent="."]
 
-[node name="NorthOldTree" type="Polygon2D" parent="Environment"]
-polygon = PackedVector2Array(900,60,980,60,980,140,900,140)
-color = Color(0.1,0.35,0.12,1)
+[node name="VillageCenterTree" type="Sprite2D" parent="Environment"]
+position = Vector2(780, 550)
+texture = ExtResource("9_tree")
+centered = false
 
-[node name="EntranceTreeLeft" type="Polygon2D" parent="Environment"]
-polygon = PackedVector2Array(2050,650,2130,650,2130,730,2050,730)
-color = Color(0.1,0.35,0.12,1)
+[node name="VillageCenterStoneTable" type="Sprite2D" parent="Environment"]
+position = Vector2(1080, 690)
+texture = ExtResource("13_stone_table")
+centered = false
 
-[node name="EntranceTreeRight" type="Polygon2D" parent="Environment"]
-polygon = PackedVector2Array(2200,650,2280,650,2280,730,2200,730)
-color = Color(0.1,0.35,0.12,1)
+[node name="RiverWillow" type="Sprite2D" parent="Environment"]
+position = Vector2(1320, 970)
+texture = ExtResource("10_willow")
+centered = false
 
-[node name="Bridge" type="Polygon2D" parent="Environment"]
-polygon = PackedVector2Array(1550,1120,1700,1120,1700,1180,1550,1180)
-color = Color(0.5,0.32,0.18,1)
+[node name="Bridge" type="Sprite2D" parent="Environment"]
+position = Vector2(1550, 1120)
+texture = ExtResource("11_bridge")
+centered = false
 
-[node name="WoodPile" type="Polygon2D" parent="Environment"]
-polygon = PackedVector2Array(560,920,700,920,700,970,560,970)
-color = Color(0.3,0.18,0.08,1)
+[node name="EntranceTreeLeft" type="Sprite2D" parent="Environment"]
+position = Vector2(2020, 605)
+texture = ExtResource("9_tree")
+centered = false
 
-[node name="VegetableGarden" type="Polygon2D" parent="Environment"]
-polygon = PackedVector2Array(120,1020,300,1020,300,1120,120,1120)
-color = Color(0.25,0.45,0.15,1)
+[node name="EntranceTreeRight" type="Sprite2D" parent="Environment"]
+position = Vector2(2170, 605)
+texture = ExtResource("9_tree")
+centered = false
 
-[node name="BlacksmithFire" type="Polygon2D" parent="Environment"]
-polygon = PackedVector2Array(1400,720,1480,720,1480,800,1400,800)
-color = Color(0.8,0.35,0.1,1)
+[node name="VillageGate" type="Sprite2D" parent="Environment"]
+position = Vector2(2080, 695)
+texture = ExtResource("12_gate")
+centered = false
 
-[node name="HerbRack" type="Polygon2D" parent="Environment"]
-polygon = PackedVector2Array(300,680,420,680,420,740,300,740)
-color = Color(0.35,0.55,0.2,1)
+[node name="ChickenA" type="Sprite2D" parent="Environment"]
+position = Vector2(235, 988)
+texture = ExtResource("14_chicken")
+centered = false
 
-[node name="FishBasket" type="Polygon2D" parent="Environment"]
-polygon = PackedVector2Array(1660,1230,1720,1230,1720,1290,1660,1290)
-color = Color(0.45,0.35,0.2,1)
+[node name="ChickenB" type="Sprite2D" parent="Environment"]
+position = Vector2(292, 1016)
+texture = ExtResource("14_chicken")
+centered = false
+flip_h = true
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="BlacksmithFire" type="AnimatedSprite2D" parent="Effects"]
+position = Vector2(1532, 650)
+sprite_frames = SubResource("SpriteFrames_fire")
+animation = &"burn"
+autoplay = "burn"
+
+[node name="Collision" type="TileMapLayer" parent="."]
+
+[node name="AuntHouseWalls" type="StaticBody2D" parent="Collision"]
+
+[node name="Top" type="CollisionShape2D" parent="Collision/AuntHouseWalls"]
+position = Vector2(350, 712)
+shape = SubResource("AuntTopShape")
+
+[node name="Left" type="CollisionShape2D" parent="Collision/AuntHouseWalls"]
+position = Vector2(192, 825)
+shape = SubResource("AuntSideShape")
+
+[node name="Right" type="CollisionShape2D" parent="Collision/AuntHouseWalls"]
+position = Vector2(508, 825)
+shape = SubResource("AuntSideShape")
+
+[node name="BottomLeft" type="CollisionShape2D" parent="Collision/AuntHouseWalls"]
+position = Vector2(252.5, 938)
+shape = SubResource("AuntBottomShape")
+
+[node name="BottomRight" type="CollisionShape2D" parent="Collision/AuntHouseWalls"]
+position = Vector2(447.5, 938)
+shape = SubResource("AuntBottomShape")
+
+[node name="LumberjackBody" type="StaticBody2D" parent="Collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/LumberjackBody"]
+position = Vector2(650, 755)
+shape = SubResource("LumberShape")
+
+[node name="HerbShopBody" type="StaticBody2D" parent="Collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/HerbShopBody"]
+position = Vector2(500, 560)
+shape = SubResource("HerbShape")
+
+[node name="BlacksmithBody" type="StaticBody2D" parent="Collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/BlacksmithBody"]
+position = Vector2(1650, 560)
+shape = SubResource("BlacksmithShape")
+
+[node name="InnBody" type="StaticBody2D" parent="Collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/InnBody"]
+position = Vector2(1300, 535)
+shape = SubResource("InnShape")
+
+[node name="ChiefHouseBody" type="StaticBody2D" parent="Collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/ChiefHouseBody"]
+position = Vector2(1050, 255)
+shape = SubResource("ChiefShape")
+
+[node name="WellBody" type="StaticBody2D" parent="Collision"]
+position = Vector2(1000, 700)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/WellBody"]
+shape = SubResource("WellShape")
+
+[node name="RiverWest" type="StaticBody2D" parent="Collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/RiverWest"]
+position = Vector2(1325, 1275)
+shape = SubResource("RiverWestShape")
+
+[node name="RiverEast" type="StaticBody2D" parent="Collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/RiverEast"]
+position = Vector2(2050, 1275)
+shape = SubResource("RiverEastShape")
+
+[node name="VillageCenterTreeBody" type="StaticBody2D" parent="Collision"]
+position = Vector2(850, 690)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/VillageCenterTreeBody"]
+shape = SubResource("TreeShape")
+
+[node name="EntranceTreeLeftBody" type="StaticBody2D" parent="Collision"]
+position = Vector2(2090, 745)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/EntranceTreeLeftBody"]
+shape = SubResource("TreeShape")
+
+[node name="EntranceTreeRightBody" type="StaticBody2D" parent="Collision"]
+position = Vector2(2240, 745)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/EntranceTreeRightBody"]
+shape = SubResource("TreeShape")
+
+[node name="RiverWillowBody" type="StaticBody2D" parent="Collision"]
+position = Vector2(1385, 1122)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/RiverWillowBody"]
+shape = SubResource("WillowShape")
+
+[node name="MapBoundaries" type="StaticBody2D" parent="Collision"]
+
+[node name="Top" type="CollisionShape2D" parent="Collision/MapBoundaries"]
+position = Vector2(1200, 16)
+shape = SubResource("BoundaryHorizontal")
+
+[node name="Bottom" type="CollisionShape2D" parent="Collision/MapBoundaries"]
+position = Vector2(1200, 1584)
+shape = SubResource("BoundaryHorizontal")
+
+[node name="Left" type="CollisionShape2D" parent="Collision/MapBoundaries"]
+position = Vector2(16, 800)
+shape = SubResource("BoundaryLeft")
+
+[node name="RightTop" type="CollisionShape2D" parent="Collision/MapBoundaries"]
+position = Vector2(2384, 360)
+shape = SubResource("BoundaryRightTop")
+
+[node name="RightBottom" type="CollisionShape2D" parent="Collision/MapBoundaries"]
+position = Vector2(2384, 1280)
+shape = SubResource("BoundaryRightBottom")
 
 [node name="NPCMarkers" type="Node2D" parent="."]
 
 [node name="Lumberjack" type="Marker2D" parent="NPCMarkers"]
-position = Vector2(650,900)
+position = Vector2(650, 900)
 
 [node name="HerbOldMan" type="Marker2D" parent="NPCMarkers"]
-position = Vector2(500,700)
+position = Vector2(500, 700)
 
 [node name="BlacksmithDaughter" type="Marker2D" parent="NPCMarkers"]
-position = Vector2(1250,820)
+position = Vector2(1250, 820)
 
 [node name="Fisherman" type="Marker2D" parent="NPCMarkers"]
-position = Vector2(1750,1200)
+position = Vector2(1750, 1200)
 
 [node name="VillageExit" type="Marker2D" parent="."]
-position = Vector2(2300,820)
+position = Vector2(2300, 820)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(350,850)
+position = Vector2(350, 850)
